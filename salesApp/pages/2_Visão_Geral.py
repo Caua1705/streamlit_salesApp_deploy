@@ -4,7 +4,7 @@ import streamlit as st
 from datetime import date, timedelta
 import plotly.express as px
 
-dir_planilhas=Path(__file__).parents[1] / "Planilhas"
+dir_planilhas=Path(__file__).parents[2] / "datasets"
 
 #Lendo planilhas:
 df_filiais=pd.read_excel(dir_planilhas / "filiais.xlsx",index_col=0)

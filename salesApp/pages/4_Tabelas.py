@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 
-dir_planilhas=Path(__file__).parents[1] / "Planilhas"
+dir_planilhas=Path(__file__).parents[2] / "datasets"
 
 #Lendo planilhas:
 df_filiais=pd.read_excel(dir_planilhas / "filiais.xlsx",index_col=0)
