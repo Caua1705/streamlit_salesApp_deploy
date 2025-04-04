@@ -79,6 +79,6 @@ df_produtos = pd.DataFrame(PRODUTOS)
 
 pasta_atual = Path(__file__).parent
 
-df_vendas.to_excel(pasta_atual / "Planilhas" / "vendas.xlsx")
-df_filiais.to_excel(pasta_atual / "Planilhas" / "filiais.xlsx")
-df_produtos.to_excel(pasta_atual / "Planilhas" / "produtos.xlsx")
+df_vendas.to_excel(pasta_atual / "vendas.xlsx")
+df_filiais.to_excel(pasta_atual / "filiais.xlsx")
+df_produtos.to_excel(pasta_atual / "produtos.xlsx")
