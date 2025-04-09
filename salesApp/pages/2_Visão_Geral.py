@@ -57,7 +57,7 @@ col3.metric("Principal filial",principal_filial_periodo)
 
 #col4:
 principal_vendedor_periodo=df_vendas_corte["vendedor"].value_counts().index[0]
-col4.metric("Principal filial",principal_vendedor_periodo)
+col4.metric("Principal Vendedor",principal_vendedor_periodo)
 
 st.divider()
 
