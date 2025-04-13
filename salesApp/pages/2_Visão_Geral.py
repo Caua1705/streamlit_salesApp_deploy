@@ -1,22 +1,17 @@
-from pathlib import Path
 import pandas as pd
 import streamlit as st
 from datetime import date, timedelta
 import plotly.express as px
+from carregamento_dados import carregar_dados
 
-dir_planilhas=Path(__file__).parents[2] / "datasets"
-
-#Lendo planilhas:
-df_filiais=pd.read_excel(dir_planilhas / "filiais.xlsx",index_col=0)
-df_vendas=pd.read_excel(dir_planilhas / "vendas.xlsx",index_col=0)
-df_produtos=pd.read_excel(dir_planilhas / "produtos.xlsx",index_col=0)
+dataframes,dir_planilhas=carregar_dados()
 
 #Criando dataframe completo
-df_vendas=df_vendas.reset_index()
+df_vendas=dataframes["vendas"].reset_index()
 
-df_produtos.rename(columns={"nome" : "produto"},inplace=True)
+dataframes["produtos"].rename(columns={"nome" : "produto"},inplace=True)
             
-df_vendas=pd.merge(df_vendas,df_produtos,on="produto",how="left")
+df_vendas=pd.merge(df_vendas,dataframes["produtos"],on="produto",how="left")
 
 df_vendas=df_vendas.set_index("data")
 
