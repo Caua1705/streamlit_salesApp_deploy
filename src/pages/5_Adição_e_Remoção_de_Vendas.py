@@ -1,23 +1,23 @@
 import pandas as pd
 import streamlit as st
 from datetime import datetime
-from carregamento_dados import carregar_dados
+from pages.carregamento_dados import carregar_dados
 
 dataframes,dir_planilhas=carregar_dados()
 
  #session_state É um dicionário especial fornecido pelo Streamlit para armazenar variáveis que persistem entre as reexecuções do seu script.
 
 #A ideia aqui é garantir que os DataFrames sejam carregados e armazenados no st.session_state apenas na primeira execução do script.
-if not "dados" in st.session_state:
+if "dados" not in st.session_state:
     dados={"df_vendas":dataframes["vendas"],
            "df_filiais":dataframes["filiais"],
            "df_produtos":dataframes["produtos"]}
     st.session_state["dados"]=dados
     # Inicializa o session_state com o DataFrame original de vendas
     st.session_state["df_vendas_copia"] = dataframes["vendas"].copy()
-    df_vendas = st.session_state['dados']['df_vendas']
-    df_filiais = st.session_state['dados']['df_filiais']
-    df_produtos = st.session_state['dados']['df_produtos']
+df_vendas = st.session_state['dados']['df_vendas']
+df_filiais = st.session_state['dados']['df_filiais']
+df_produtos = st.session_state['dados']['df_produtos']
 
 #Configuração da página:
 st.set_page_config(layout="wide")
