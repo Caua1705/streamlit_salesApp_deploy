@@ -1,6 +1,6 @@
 import pandas as pd
 import streamlit as st
-from pages.carregamento_dados import carregar_dados
+from carregamento_dados import carregar_dados
 
 dataframes,dir_planilhas=carregar_dados()
 
