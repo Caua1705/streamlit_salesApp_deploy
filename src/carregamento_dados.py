@@ -4,7 +4,7 @@ import pandas as pd
 # Lendo e carregando os dados das planilhas em DataFrames
 
 def carregar_dados():
-    dir_planilhas = Path(__file__).parent / "datasets"
+    dir_planilhas = Path(__file__).parents[1] / "datasets"
     df_filiais=pd.read_excel(dir_planilhas / "filiais.xlsx",index_col=0)
     df_vendas=pd.read_excel(dir_planilhas / "vendas.xlsx",index_col=0)
     df_produtos=pd.read_excel(dir_planilhas / "produtos.xlsx",index_col=0)
